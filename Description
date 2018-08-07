@@ -1,0 +1,34 @@
+
+Objective:-  To build a web page in Angular JS to change template theme and image resize.
+
+Details:-
+
+1.       A webpage should be built and displayed With some welcome text and image.
+
+2.       There should be 3 input boxes to take font type, font color and background color.
+
+3.       User should be able to choose font type, font color and background color from those text boxes.
+
+4.       There should be a submit  button to take the above inputs.
+
+5.       Once, submitted, the font type of welcome text, font color and background color of web page should change.
+
+6.       Font color and webpage bg color should not be same, appropriate message to be displayed to user as pop up.
+
+7.       The page should be compatible for mobile view.
+
+8.       There should be an input to display the number of images. Images should get displayed in grid layout  4 in a row for desktop site and 2 in a row for mobile site.
+
+9.       Same image can be re-used as per the count selected.
+
+Technologies to Use
+
+1.       Angular JS version 4
+
+2.       HTML5
+
+3.       CSS
+
+4.       JS
+
+5.       Bootstrap

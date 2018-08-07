@@ -1,0 +1,1 @@
+This font is demo and only for personal use, for commercial use, license or corporate license please contact me via email: takiyuddin90@gmail.com
