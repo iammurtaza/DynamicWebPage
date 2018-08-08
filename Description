@@ -17,7 +17,7 @@ Details:-
 
 7.       The page should be compatible for mobile view.
 
-8.       There should be an input to display the number of images. Images should get displayed in grid layout  4 in a row for desktop site and 2 in a row for mobile site.
+8.       There should be an input to dissplay the number of images. Images should get displayed in grid layout  4 in a row for desktop site and 2 in a row for mobile site.
 
 9.       Same image can be re-used as per the count selected.
 

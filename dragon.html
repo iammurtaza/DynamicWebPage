@@ -3,16 +3,44 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.css">
-    <title>Dragon</title>
-</head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        function foo() {
+            // console.log("in the foo function");
+            var backgroundcolorx = document.getElementById("backgroundcolor").value;
+            var fontcolorx = document.getElementById("fontcolor").value;
+            var fonttypex = document.getElementById("fonttype").value;
+            var imagerepetitionx = document.getElementById("imagerepetition").value;
 
-<body style="background-color: black">
+            if (fontcolorx == backgroundcolorx) {
+                alert("The background color and font color cannot be the same");
+            }
+            else {
+                //console.log(backgroundcolor);
+                document.body.style.backgroundColor = backgroundcolorx;
+                //console.log(fontcolorx);
+                document.getElementById("para1").style.color = fontcolorx;
+                document.getElementById("para2").style.color = fontcolorx;
+
+            }
+            document.getElementById("images").innerHTML = "";
+            for (var i = 0; i < imagerepetitionx; i++) {
+                document.getElementById("images").innerHTML +=
+                    "<div class=\"col-md-3 col-sm-6\"><img class=\"img-responsive\" src=\"res/dragon1.png\"></div>";
+            }
+            document.getElementById("para1").style.fontFamily = fonttypex;
+            document.getElementById("para2").style.fontFamily = fonttypex;
+            return true;
+        }
+    </script>
     <style>
         @font-face {
             font-family: 'xtt';
-            src: url('css/font/Fabulous.tff') format('truetype'),
+            src: url('css/font/Fabulous.ttf') format('truetype'),
             url('css/font/Fabulous.otf') format('opentype');
         }
 
@@ -22,22 +50,28 @@
             text-decoration: red;
         }
     </style>
-    <center>
-        <h1 style="letter-spacing: 6px;">RELEASE THE DRAGON</h1>
-    </center>
-    <center>
+    <title>Dragon</title>
+</head>
+
+<body style="background-color: black;">
+    <div class="container">
+        <center>
+            <h1 style="letter-spacing: 6px;">RELEASE THE DRAGON</h1>
+        </center>
+        <br>
         <div class="row">
-            <div class="column">
-                <img src="res/dragon1.png" width="22%">
-                <img src="res/dragon2.jpg" width="22%">
-                <img src="res/dragon3.jpg" width="22%">
-                <img src="res/dragon4.jpg" width="22%">
+            <div class="container">
+                <div id="images">
+                    <div class="col-md-3 col-sm-6">
+                        <img class="img-responsive" src="res/dragon1.png">
+                    </div>
+                </div>
             </div>
         </div>
-    </center>
+    </div>
     <br>
-    <div>
-        <p>A dragon is a large, serpent-like legendary creature that appears in the folklore of many cultures around the world.
+    <div class="container">
+        <p id="para1" style="font-family:Arial;">A dragon is a large, serpent-like legendary creature that appears in the folklore of many cultures around the world.
             Beliefs about dragons vary drastically by region, but dragons in western cultures since the High Middle Ages
             have often been depicted as winged, horned, four-legged, and capable of breathing fire. Dragons in eastern cultures
             are usually depicted as wingless, four-legged, serpentine creatures with above-average intelligence. The earliest
@@ -45,7 +79,7 @@
             Near East and appear in ancient Mesopotamian art and literature. Stories about storm-gods slaying giant serpents
             occur throughout nearly all Indo-European and Near Eastern mythologies. </p>
 
-        <p>Famous prototypical dragons include the mušḫuššu of ancient Mesopotamia, Apep in Egyptian mythology, Vṛtra in the
+        <p id="para2" style="font-family:Arial;">Famous prototypical dragons include the mušḫuššu of ancient Mesopotamia, Apep in Egyptian mythology, Vṛtra in the
             Rigveda, the Leviathan in the Hebrew Bible, Python, Ladon, Wyvern, and the Lernaean Hydra in Greek mythology,
             Jörmungandr, Níðhöggr, and Fafnir in Norse mythology, and the dragon from Beowulf. The popular western image
             of a dragon as winged, four-legged, and capable of breathing fire is an invention of the High Middle Ages based
@@ -55,66 +89,66 @@
             dragons appear frequently in western fantasy literature, including The Hobbit and The Lord of the Rings by J.
             R. R. Tolkien, the Harry Potter series by J. K. Rowling, and A Song of Ice and Fire by George R. R. Martin.</p>
     </div>
-    <div>
-        <br>
+    <br>
+    <div class="container">
         <center>
-            <div class="container">
-                <h3>DYNAMIC SPECIFICATIONS</h3>
-                <br>
-                <form class="form-horizontal" action="/action_page.php">
-                    <div class="form-group">
-                        <label class="control-label col-sm-2" for="backgroundcolor">Background color:</label>
-                        <div class="col-sm-3">
-                            <select name="backgroundcolor" class="form-control">
-                                <option value="red">Red</option>
-                                <option value="green">Green</option>
-                                <option value="blue">Blue</option>
-                                <option value="black" selected>Black</option>
-                                <option value="white">White</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-sm-2" for="fontcolor">Font Color:</label>
-                        <div class="col-sm-3">
-                            <select name="backgroundcolor" class="form-control">
-                                <option value="red">Red</option>
-                                <option value="green">Green</option>
-                                <option value="blue">Blue</option>
-                                <option value="black">Black</option>
-                                <option value="white" selected>White</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-sm-2" for="fonttype">Font Type:</label>
-                        <div class="col-sm-3">
-                            <select name="fonttyper" class="form-control">
-                                <option value="arial">Arial</option>
-                                <option value="timesnewroman">Times New Roman</option>
-                                <option value="courier">Courier</option>
-                                <option value="verdana">Verdana</option>
-                                <option value="tahoma">Tahoma</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-sm-2" for="fonttype">Image Repetitions:</label>
-                        <div class="col-sm-3">
-                            <input type=number min="0" class="form-control" name=imagerepetition>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-default">Submit</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+            <h3>DYNAMIC WEBPAGE SPECIFICATIONS</h3>
         </center>
+        <br>
+        <form class="form-horizontal">
+            <div class="col-xs-10 col-xs-offset-4">
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Background color:</label>
+                    <div class="col-sm-3">
+                        <select id="backgroundcolor" class="form-control">
+                            <option value="red">Red</option>
+                            <option value="green">Green</option>
+                            <option value="blue">Blue</option>
+                            <option value="black" selected>Black</option>
+                            <option value="white">White</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Font Color:</label>
+                    <div class="col-sm-3">
+                        <select id="fontcolor" class="form-control">
+                            <option value="red">Red</option>
+                            <option value="green">Green</option>
+                            <option value="blue">Blue</option>
+                            <option value="black">Black</option>
+                            <option value="white" selected>White</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Font Type:</label>
+                    <div class="col-sm-3">
+                        <select id="fonttype" class="form-control">
+                            <option value="arial">Arial</option>
+                            <option value="timesnewroman">Times New Roman</option>
+                            <option value="courier">Courier</option>
+                            <option value="verdana">Verdana</option>
+                            <option value="tahoma">Tahoma</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Image Repetitions:</label>
+                    <div class="col-sm-3">
+                        <input type=number min="1" value="1" class="form-control" id=imagerepetition>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="button" onclick="foo()" class="btn btn-default">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div style="margin-top: 32px"></div>
     </div>
-    <div style="margin-top: 32px"></div>
 </body>
 
 </html>
