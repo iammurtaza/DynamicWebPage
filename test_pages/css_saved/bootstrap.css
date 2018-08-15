@@ -1122,8 +1122,8 @@ img {
 .carousel-inner > .item > a > img {
   display: block;
   max-width: 100%;
+  padding: 16px;
   height: auto;
-  padding: 8px 0px;
 }
 .img-rounded {
   border-radius: 6px;
@@ -1288,6 +1288,7 @@ h6,
   font-size: 12px;
 }
 p {
+  font-size: 1.6rem;
   margin: 0 0 10px;
 }
 .lead {
