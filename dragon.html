@@ -7,44 +7,54 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="icon" type="image/x-icon" href="res/dragon_icon/favicon.ico">
     <title>Dragons are here</title>
-    <script>
-        function foo() {
+    <script type="text/javascript">
+        function repetition(backgroundcolorx, fontcolorx) {
+            document.body.style.backgroundColor = backgroundcolorx;
+            document.getElementById("heading").style.color = fontcolorx;
+            document.getElementById("dws").style.color = fontcolorx;
+            document.getElementById("ir").style.color = fontcolorx;
+            document.getElementById("fl").style.color = fontcolorx;
+            document.getElementById("ft").style.color = fontcolorx;
+            document.getElementById("bl").style.color = fontcolorx;
+            document.getElementById("para1").style.color = fontcolorx;
+        }
+        function number_change_listener() {
+            var imagerepetitionx = document.getElementById("imagerepetition").value;
+            if (imagerepetitionx < 0) {
+                alert("Number of images cannot be lesser than 0");
+                document.getElementById("imagerepetition").value = 1;
+            }
+            else if (imagerepetitionx > 12) {
+                alert("Number of images cannot exceed 12");
+                document.getElementById("imagerepetition").value = 12;
+            }
+        }
+        function select_listener() {
+            var backgroundcolorx = document.getElementById("backgroundcolor").value;
+            var fontcolorx = document.getElementById("fontcolor").value;
+            if (fontcolorx == backgroundcolorx) {
+                alert("Background color and font color cannot be the same");
+                backgroundcolorx = "black";
+                fontcolorx = "white";
+                document.getElementById("fontcolor").value = fontcolorx;
+                document.getElementById("backgroundcolor").value = backgroundcolorx;
+                repetition(backgroundcolorx, fontcolorx);
+            }
+        }
+        function submit_form() {
+            window.parent.scroll(0, 0);
             var backgroundcolorx = document.getElementById("backgroundcolor").value;
             var fontcolorx = document.getElementById("fontcolor").value;
             var fonttypex = document.getElementById("fonttype").value;
-            var imagerepetitionx = document.getElementById("imagerepetition").value;
-
-            if (fontcolorx == backgroundcolorx) {
-                alert("Background color and font color cannot be the same");
-            }
-            else {
-                document.body.style.backgroundColor = backgroundcolorx;
-                document.getElementById("heading").style.color = fontcolorx;
-                document.getElementById("dws").style.color = fontcolorx;
-                document.getElementById("ir").style.color = fontcolorx;
-                document.getElementById("fl").style.color = fontcolorx;
-                document.getElementById("ft").style.color = fontcolorx;
-                document.getElementById("bl").style.color = fontcolorx;
-                document.getElementById("para1").style.color = fontcolorx;
-            }
-            document.getElementById("images").innerHTML = "";
-            if (imagerepetitionx < 0) {
-                alert("Number of images cannot be lesser than 0");
-                document.getElementById("images").innerHTML +=
-                    "<div class=\"col-md-3 col-xs-6 col-lg-3 col-sm-6\"><img class=\"img-responsive\" src=\"res/dragon1.png\"></div>";
-            }
-            else if (imagerepetitionx <= 12) {
-                for (var i = 0; i < imagerepetitionx; i++) {
-                    document.getElementById("images").innerHTML +=
-                        "<div class=\"col-md-3 col-xs-6 col-lg-3 col-sm-6\"><img class=\"img-responsive\" src=\"res/dragon1.png\"></div>";
-                }
-            }
-            else {
-                alert("Number of images cannot exceed 12");
-                document.getElementById("images").innerHTML +=
-                    "<div class=\"col-md-3 col-xs-6 col-lg-3 col-sm-6\"><img class=\"img-responsive\" src=\"res/dragon1.png\"></div>";
-            }
             document.getElementById("para1").style.fontFamily = fonttypex;
+            var imagerepetitionx = document.getElementById("imagerepetition").value;
+            repetition(backgroundcolorx, fontcolorx);
+
+            document.getElementById("images").innerHTML = "";
+            for (var i = 0; i < imagerepetitionx; i++) {
+                document.getElementById("images").innerHTML +=
+                    "<div class=\"col-md-3 col-xs-6 col-lg-3 col-sm-6\"><img class=\"img-responsive\" src=\"res/dragon1.png\"></div>";
+            }
             return true;
         }
     </script>
@@ -80,14 +90,9 @@
             </div>
             <br>
             <div class="container">
-                <p id="para1" style="font-family:Arial;">A dragon is a large, serpent-like legendary creature that appears
-                    in the folklore of many cultures around the world. Beliefs about dragons vary drastically by region,
-                    but dragons in western cultures since the High Middle Ages have often been depicted as winged, horned,
-                    four-legged, and capable of breathing fire. Dragons in eastern cultures are usually depicted as wingless,
-                    four-legged, serpentine creatures with above-average intelligence. The earliest attested dragons resemble
-                    giant snakes. Dragon-like creatures are first described in the mythologies of the ancient Near East and
-                    appear in ancient Mesopotamian art and literature. Stories about storm-gods slaying giant serpents occur
-                    throughout nearly all Indo-European and Near Eastern mythologies.
+                <p id="para1" style="font-family:Arial;">A dragon is a large, serpent-like legendary creature that appears in the folklore of many cultures around
+                    the world. Beliefs about dragons vary drastically by region, but dragons in western cultures since the
+                    High Middle Ages have often been depicted as winged, horned, four-legged, and capable of breathing fire.
                 </p>
             </div>
             <br>
@@ -96,10 +101,10 @@
             </center>
             <center>
                 <div class="container" style="max-width:200px;margin:60px auto;">
-                    <form class="form-horizontal" role="form">
+                    <form id="form1" class="form-horizontal" method="get" action="" onsubmit="return false">
                         <div class="form-group">
                             <label id="bl" for="backgroundcolor">Background Color:</label>
-                            <select id="backgroundcolor" class="form-control">
+                            <select id="backgroundcolor" onchange="select_listener()" class="form-control">
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
                                 <option value="blue">Blue</option>
@@ -109,7 +114,7 @@
                         </div>
                         <div class="form-group">
                             <label id="fl" for="fontcolor">Font Color:</label>
-                            <select id="fontcolor" class="form-control">
+                            <select id="fontcolor" onchange="select_listener()" class="form-control">
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
                                 <option value="blue">Blue</option>
@@ -129,12 +134,10 @@
                         </div>
                         <div class="form-group">
                             <label id="ir" for="imagerepetition">Image Repetitions:</label>
-                            <input type=number min="1" max="12" value="1" class="form-control" id="imagerepetition">
+                            <input type=number min="1" max="12" value="1" class="form-control" id="imagerepetition" onchange="number_change_listener()">
                         </div>
                         <br>
-
-                        <button type="button" onclick="foo()" class="btn btn-primary">Submit</button>
-
+                        <input type="submit" name="submit" onclick="submit_form()" class="btn btn-primary" value="Submit">
                     </form>
                 </div>
             </center>
